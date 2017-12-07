@@ -1,0 +1,664 @@
+/* app css stylesheet */
+/* line 19, app.scss */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 24, app.scss */
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@-ms-viewport {
+  width: device-width;
+}
+@viewport {
+  width: device-width;
+}
+/* line 42, app.scss */
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* line 46, app.scss */
+body {
+  margin: 0;
+  font: 16px/1 sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* line 52, app.scss */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 64, app.scss */
+li {
+  display: block;
+}
+
+/* line 67, app.scss */
+strong {
+  font-weight: bold;
+}
+
+/* line 70, app.scss */
+a,
+button {
+  color: inherit;
+}
+
+/* line 74, app.scss */
+a {
+  text-decoration: none;
+}
+
+/* line 77, app.scss */
+button {
+  overflow: visible;
+  border: 0;
+  font: inherit;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: inherit;
+  background: none;
+  cursor: pointer;
+}
+
+/* line 86, app.scss */
+::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+/* line 90, app.scss */
+img {
+  max-width: 100%;
+  height: auto;
+  border: 0;
+}
+
+/* line 95, app.scss */
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/* line 111, app.scss */
+html,
+body {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  color: #333;
+}
+
+/* line 117, app.scss */
+button {
+  padding: 0.5rem;
+  border-radius: 4/16rem;
+}
+/* line 123, app.scss */
+button.primary-action, button.secondary-action {
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #fff;
+}
+/* line 130, app.scss */
+button.primary-action {
+  background-color: #cc0000;
+}
+/* line 133, app.scss */
+button.secondary-action {
+  background-color: #000;
+}
+/* line 136, app.scss */
+button.tertiary-action {
+  background-color: #f3f3f3;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #000;
+}
+
+/* line 1, itemCatalog/itemCatalog.scss */
+.item-catalog {
+  padding: 0 10%;
+}
+
+/* line 5, itemCatalog/itemCatalog.scss */
+.title {
+  padding: 1rem 0;
+}
+/* line 8, itemCatalog/itemCatalog.scss */
+.title h1 {
+  text-align: center;
+  font-weight: 400;
+}
+
+/* line 14, itemCatalog/itemCatalog.scss */
+.carousel {
+  width: 100%;
+}
+
+/* line 18, itemCatalog/itemCatalog.scss */
+.carousel_main {
+  position: relative;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  width: 100%;
+  height: 30rem;
+  overflow: hidden;
+  object-fit: contain;
+  object-position: center;
+}
+/* line 34, itemCatalog/itemCatalog.scss */
+.carousel_main.transitioning img {
+  opacity: 0;
+}
+/* line 38, itemCatalog/itemCatalog.scss */
+.carousel_main img {
+  -webkit-transition: opacity 0.3s;
+  -moz-transition: opacity 0.3s;
+  -ms-transition: opacity 0.3s;
+  -o-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+/* line 47, itemCatalog/itemCatalog.scss */
+.carousel__nav {
+  position: relative;
+  width: 100%;
+  margin-top: 1rem;
+}
+/* line 52, itemCatalog/itemCatalog.scss */
+.carousel__nav:after {
+  content: "";
+  display: block;
+  height: 6rem;
+  width: 30%;
+  position: absolute;
+  top: 0;
+  right: -1/16rem;
+  bottom: 0;
+  z-index: 10;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, white 100%);
+  pointer-events: none;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+/* line 75, itemCatalog/itemCatalog.scss */
+.carousel__nav-previous,
+.carousel__nav-next {
+  display: none;
+}
+
+/* line 80, itemCatalog/itemCatalog.scss */
+.carousel__strip-outer {
+  position: relative;
+  width: 100%;
+  height: 6rem;
+  overflow-x: scroll;
+}
+
+/* line 87, itemCatalog/itemCatalog.scss */
+.carousel__strip-inner {
+  position: absolute;
+  -webkit-transition: left 0.25s;
+  -moz-transition: left 0.25s;
+  -ms-transition: left 0.25s;
+  -o-transition: left 0.25s;
+  transition: left 0.25s;
+}
+
+/* line 97, itemCatalog/itemCatalog.scss */
+.carousel__nav-button {
+  border: 0.125rem solid transparent;
+  background: none;
+  outline: none;
+}
+/* line 102, itemCatalog/itemCatalog.scss */
+.carousel__nav-button--active {
+  border: 0.125rem solid #cc0000;
+}
+/* line 106, itemCatalog/itemCatalog.scss */
+.carousel__nav-button img {
+  width: 4rem;
+  margin: 0 0.5rem;
+}
+
+/* line 112, itemCatalog/itemCatalog.scss */
+.price {
+  padding: 1rem 0 2rem;
+}
+
+/* line 116, itemCatalog/itemCatalog.scss */
+.price__value {
+  font-size: 1.75rem;
+  font-weight: 800;
+}
+
+/* line 122, itemCatalog/itemCatalog.scss */
+.price__qualifier {
+  text-transform: lowercase;
+}
+
+/* line 126, itemCatalog/itemCatalog.scss */
+.promo {
+  padding: 1rem 0;
+  border-top: 1/16rem solid #ccc;
+  border-bottom: 1/16rem solid #ccc;
+}
+/* line 132, itemCatalog/itemCatalog.scss */
+.promo li {
+  position: relative;
+  line-height: 1.5rem;
+  padding-left: 1.5rem;
+  color: #cc0000;
+}
+/* line 139, itemCatalog/itemCatalog.scss */
+.promo li:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  display: block;
+  width: 1rem;
+  height: 1.5rem;
+  margin-right: 0.5rem;
+  background: url("images/tag_icon.png") no-repeat center;
+}
+
+/* line 153, itemCatalog/itemCatalog.scss */
+.purchase {
+  padding: 2rem 0;
+}
+
+/* line 157, itemCatalog/itemCatalog.scss */
+.purchase__quantity {
+  width: 48%;
+  padding: 0.5rem;
+  margin: 0 0 1.5rem 52%;
+  border: 1/16rem solid #ccc;
+}
+/* line 164, itemCatalog/itemCatalog.scss */
+.purchase__quantity h3,
+.purchase__quantity button,
+.purchase__quantity .purchase__quantity-value {
+  display: inline-block;
+}
+/* line 170, itemCatalog/itemCatalog.scss */
+.purchase__quantity h3 {
+  margin-right: 10%;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  font-weight: 400;
+  text-transform: lowercase;
+}
+/* line 178, itemCatalog/itemCatalog.scss */
+.purchase__quantity button {
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+  padding: 0;
+  text-align: center;
+  border: 2/16rem solid #ccc;
+  border-radius: 1rem;
+  font-weight: 800;
+}
+/* line 192, itemCatalog/itemCatalog.scss */
+.purchase__quantity .purchase__quantity-value {
+  margin: 0 0.25rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+/* line 200, itemCatalog/itemCatalog.scss */
+.purchase__quantity-selection {
+  display: inline-block;
+}
+
+/* line 7, app.scss */
+.purchase__actions:before, .purchase__actions:after {
+  content: " ";
+  display: table;
+}
+/* line 12, app.scss */
+.purchase__actions:after {
+  clear: both;
+}
+/* line 207, itemCatalog/itemCatalog.scss */
+.purchase__actions button {
+  display: inline-block;
+  float: left;
+  width: 48%;
+}
+/* line 212, itemCatalog/itemCatalog.scss */
+.purchase__actions button:first-of-type {
+  margin-right: 4%;
+}
+
+/* line 218, itemCatalog/itemCatalog.scss */
+.disclaimers {
+  padding: 1rem 0;
+}
+/* line 7, app.scss */
+.disclaimers:before, .disclaimers:after {
+  content: " ";
+  display: table;
+}
+/* line 12, app.scss */
+.disclaimers:after {
+  clear: both;
+}
+/* line 223, itemCatalog/itemCatalog.scss */
+.disclaimers h2 {
+  float: left;
+  width: 30%;
+  margin-right: 4.5%;
+  color: #666;
+}
+
+/* line 232, itemCatalog/itemCatalog.scss */
+.disclaimers__return-policy {
+  float: left;
+  width: 65.5%;
+  color: #666;
+}
+
+/* line 239, itemCatalog/itemCatalog.scss */
+.registry-lists-share {
+  padding: 0 0 1rem;
+}
+/* line 7, app.scss */
+.registry-lists-share:before, .registry-lists-share:after {
+  content: " ";
+  display: table;
+}
+/* line 12, app.scss */
+.registry-lists-share:after {
+  clear: both;
+}
+/* line 244, itemCatalog/itemCatalog.scss */
+.registry-lists-share button {
+  float: left;
+  width: 30%;
+  margin-left: 4.5%;
+}
+/* line 249, itemCatalog/itemCatalog.scss */
+.registry-lists-share button:first-of-type {
+  margin-left: 0;
+}
+
+/* line 255, itemCatalog/itemCatalog.scss */
+.highlights {
+  padding: 1rem 0;
+}
+/* line 258, itemCatalog/itemCatalog.scss */
+.highlights h2 {
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+/* line 263, itemCatalog/itemCatalog.scss */
+.highlights ul {
+  padding-left: 1rem;
+  color: #666;
+}
+/* line 268, itemCatalog/itemCatalog.scss */
+.highlights li {
+  display: list-item;
+  line-height: 1.5rem;
+}
+
+/* line 274, itemCatalog/itemCatalog.scss */
+.reviews {
+  padding: 2rem 0;
+}
+
+/* line 278, itemCatalog/itemCatalog.scss */
+.reviews__stars {
+  background: url("images/rating_stars_empty.png") repeat-x;
+  height: 25/16rem;
+  width: 130/16rem;
+}
+/* line 283, itemCatalog/itemCatalog.scss */
+.reviews__stars--small {
+  height: 14.4/16rem;
+  width: 75/16rem;
+  background-size: auto 100%;
+}
+/* line 289, itemCatalog/itemCatalog.scss */
+.reviews__stars--small .reviews__stars-bkg {
+  height: 14.4/16rem;
+  background-size: auto 100%;
+}
+
+/* line 297, itemCatalog/itemCatalog.scss */
+.reviews__stars-bkg {
+  float: left;
+  display: block;
+  height: 25/16rem;
+  background: url("images/rating_stars_full.png") repeat-x;
+  background-position: 0 100%;
+}
+
+/* line 306, itemCatalog/itemCatalog.scss */
+.reviews__summary {
+  font-size: 14/16rem;
+  font-weight: 800;
+  color: #000;
+}
+/* line 7, app.scss */
+.reviews__summary:before, .reviews__summary:after {
+  content: " ";
+  display: table;
+}
+/* line 12, app.scss */
+.reviews__summary:after {
+  clear: both;
+}
+
+/* line 314, itemCatalog/itemCatalog.scss */
+.reviews__overall-stars {
+  float: left;
+}
+/* line 317, itemCatalog/itemCatalog.scss */
+.reviews__overall-stars .reviews__stars {
+  display: inline-block;
+}
+
+/* line 322, itemCatalog/itemCatalog.scss */
+.reviews__view-all {
+  float: right;
+  padding-top: 0.85rem;
+}
+/* line 326, itemCatalog/itemCatalog.scss */
+.reviews__view-all:hover {
+  color: #666;
+}
+
+/* line 331, itemCatalog/itemCatalog.scss */
+.reviews__details {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #f6f6f6;
+}
+
+/* line 338, itemCatalog/itemCatalog.scss */
+.reviews__review-column {
+  margin-bottom: 2rem;
+}
+
+/* line 342, itemCatalog/itemCatalog.scss */
+.reviews__review-column-header {
+  padding: 0 1rem 1rem 0;
+  border-bottom: 1/16rem solid #333;
+}
+
+/* line 348, itemCatalog/itemCatalog.scss */
+.reviews__review-column-body {
+  padding: 1rem 2rem 0 0;
+}
+/* line 351, itemCatalog/itemCatalog.scss */
+.reviews__review-column-body p,
+.reviews__review-column-body .reviews__stars {
+  margin-bottom: 0.5rem;
+}
+/* line 356, itemCatalog/itemCatalog.scss */
+.reviews__review-column-body a {
+  text-decoration: underline;
+}
+
+@media all and (min-width: 37.5rem) {
+  /* line 7, app.scss */
+  .reviews__details:before, .reviews__details:after {
+    content: " ";
+    display: table;
+  }
+  /* line 12, app.scss */
+  .reviews__details:after {
+    clear: both;
+  }
+
+  /* line 365, itemCatalog/itemCatalog.scss */
+  .reviews__review-column {
+    float: left;
+    width: 50%;
+    margin-bottom: 0;
+  }
+}
+@media all and (min-width: 60rem) {
+  /* line 373, itemCatalog/itemCatalog.scss */
+  .item-catalog {
+    width: 100%;
+    max-width: 65rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  /* line 7, app.scss */
+  .item-catalog:before, .item-catalog:after {
+    content: " ";
+    display: table;
+  }
+  /* line 12, app.scss */
+  .item-catalog:after {
+    clear: both;
+  }
+
+  /* line 382, itemCatalog/itemCatalog.scss */
+  .title,
+  .carousel,
+  .price,
+  .promo,
+  .purchase,
+  .disclaimers,
+  .registry-lists-share,
+  .highlights,
+  .reviews {
+    max-width: 30rem;
+  }
+
+  /* line 394, itemCatalog/itemCatalog.scss */
+  .lg-left-column {
+    float: left;
+    width: 50%;
+  }
+
+  /* line 398, itemCatalog/itemCatalog.scss */
+  .lg-right-column {
+    float: right;
+    width: 45%;
+    margin-left: 5%;
+  }
+
+  /* line 403, itemCatalog/itemCatalog.scss */
+  .reviews {
+    float: left;
+  }
+
+  /* line 407, itemCatalog/itemCatalog.scss */
+  .carousel {
+    width: 30rem;
+  }
+
+  /* line 7, app.scss */
+  .carousel__nav:before, .carousel__nav:after {
+    content: " ";
+    display: table;
+  }
+  /* line 12, app.scss */
+  .carousel__nav:after {
+    clear: both;
+  }
+  /* line 413, itemCatalog/itemCatalog.scss */
+  .carousel__nav:after {
+    display: none;
+  }
+
+  /* line 417, itemCatalog/itemCatalog.scss */
+  .carousel__strip-outer {
+    width: 80%;
+    float: left;
+    overflow-x: hidden;
+  }
+
+  /* line 422, itemCatalog/itemCatalog.scss */
+  .carousel__nav-previous,
+  .carousel__nav-next {
+    display: block;
+    float: left;
+    width: 10%;
+    height: 6rem;
+  }
+  /* line 429, itemCatalog/itemCatalog.scss */
+  .carousel__nav-previous:before,
+  .carousel__nav-next:before {
+    display: block;
+    font-size: 2rem;
+    color: #333;
+  }
+  /* line 436, itemCatalog/itemCatalog.scss */
+  .carousel__nav-previous:disabled:before,
+  .carousel__nav-next:disabled:before {
+    color: #ccc;
+  }
+
+  /* line 442, itemCatalog/itemCatalog.scss */
+  .carousel__nav-previous:before {
+    content: "<";
+  }
+
+  /* line 447, itemCatalog/itemCatalog.scss */
+  .carousel__nav-next:before {
+    content: ">";
+  }
+}
+
+/*# sourceMappingURL=app.css.map */

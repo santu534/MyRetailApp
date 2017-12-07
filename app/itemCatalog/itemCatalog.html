@@ -1,0 +1,123 @@
+<div class="item-catalog">
+
+  <div class="lg-left-column">
+
+    <div class="title">
+      <h1>{{catalogItem.title}}</h1>
+    </div>
+
+    <div class="carousel">
+      <div class="carousel_main" ng-class="{transitioning: isCarouselImgTransitioning}">
+        <picture>
+          <img src="{{catalogItemImages[carouselCurrentIndex].image}}">
+        </picture>
+      </div>
+      <div class="carousel__nav">
+        <button class="carousel__nav-previous" ng-click="onCarouselNextPrevButtonClick(false)" ng-disabled="!carouselPreviousButtonEnabled"><span class="visuallyhidden">Previous</span></button>
+        <div id="CarouselStripOuter" class="carousel__strip-outer" scroll>
+          <div class="carousel__strip-inner" ng-style="carouselNavInnerStyle">
+            <button class="carousel__nav-button" ng-class="{'carousel__nav-button--active': carouselCurrentIndex == $index}" ng-repeat="imageItem in catalogItemImages" ng-click="onCarouselItemClick($index)">
+              <img ng-src="{{imageItem.image}}">
+            </button>
+          </div>
+        </div>
+        <button class="carousel__nav-next" ng-click="onCarouselNextPrevButtonClick(true)" ng-disabled="!carouselNextButtonEnabled"><span class="visuallyhidden">Next</span></button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="lg-right-column">
+
+    <div class="price">
+      <p><span class="price__value">{{catalogItem.Offers[0].OfferPrice[0].formattedPriceValue}}</span> <span class="price__qualifier">{{catalogItem.Offers[0].OfferPrice[0].priceQualifier}}</span> </p>
+    </div>
+
+    <div class="promo">
+      <h2 class="visuallyhidden">promotions</h2>
+      <ul>
+        <li ng-repeat="promotionItem in catalogItem.Promotions">{{promotionItem.Description[0].shortDescription}}</li>
+      </ul>
+    </div>
+
+    <div class="purchase">
+      <div class="purchase__quantity">
+        <h3>Quantity:</h3>
+        <div class="purchase__quantity-selection">
+          <button class="purchase__quantity-increase">+</button>
+          <span class="purchase__quantity-value">1</span>
+          <button class="purchase__quantity-decrease">-</button>
+        </div>
+      </div>
+      <div class="purchase__actions">
+        <button ng-if="catalogItem.purchasingChannelCode == 0 || catalogItem.purchasingChannelCode == 2" class="secondary-action">Pick up in Store</button>
+        <button ng-if="catalogItem.purchasingChannelCode == 0 || catalogItem.purchasingChannelCode == 1" class="primary-action">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="disclaimers">
+      <h2>returns</h2>
+      <div class="disclaimers__return-policy" ng-bind-html="catalogItem.ReturnPolicy[0].legalCopy | html"></div>
+    </div>
+
+    <div class="registry-lists-share">
+      <button class="tertiary-action">Add to Registry</button>
+      <button class="tertiary-action">Add to List</button>
+      <button class="tertiary-action">Share</button>
+    </div>
+
+    <div class="highlights">
+      <h2>product highlights</h2>
+      <ul>
+        <li ng-repeat="highlightItem in catalogItem.ItemDescription[0].features" ng-bind-html="highlightItem | html"></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="reviews">
+    <h2 class="visuallyhidden">customer reviews</h2>
+    <div class="reviews__summary">
+      <div class="reviews__overall-stars">
+        <div class="reviews__stars">
+          <div class="reviews__stars-bkg" ng-style="{'width': (catalogItem.CustomerReview[0].consolidatedOverallRating / 5 * 100).toString() + '%'}"></div>
+          <span class="visuallyhidden">{{catalogItem.CustomerReview[0].consolidatedOverallRating}} out of 5 stars</span>
+        </div>
+        <span>overall</span>
+      </div>
+      <a href="#" class="reviews__view-all">view all {{catalogItem.CustomerReview[0].totalReviews}} reviews</a>
+    </div>
+    <div class="reviews__details">
+      <div class="reviews__review-column">
+        <div class="reviews__review-column-header">
+          <h3>pro</h3>
+          <p class="note">most helpful 4-5 star review</p>
+        </div>
+        <div class="reviews__review-column-body">
+          <div class="reviews__stars reviews__stars--small">
+            <div class="reviews__stars-bkg" ng-style="{'width': (catalogItem.CustomerReview[0].Pro[0].overallRating / 5 * 100).toString() + '%'}"></div>
+            <span class="visuallyhidden">{{catalogItem.CustomerReview[0].Pro[0].overallRating}} out of 5 stars</span>
+          </div>
+          <h4>{{catalogItem.CustomerReview[0].Pro[0].title}}</h4>
+          <p>{{catalogItem.CustomerReview[0].Pro[0].review}}</p>
+          <p><a href="#">{{catalogItem.CustomerReview[0].Pro[0].screenName}}</a> {{catalogItem.CustomerReview[0].Pro[0].datePosted | customerReviewDate}}</p>
+        </div>
+      </div>
+      <div class="reviews__review-column">
+        <div class="reviews__review-column-header">
+          <h3>con</h3>
+          <p class="note">most helpful 1-2 star review</p>
+        </div>
+        <div class="reviews__review-column-body">
+          <div class="reviews__stars reviews__stars--small">
+            <div class="reviews__stars-bkg" ng-style="{'width': (catalogItem.CustomerReview[0].Con[0].overallRating / 5 * 100).toString() + '%'}"></div>
+            <span class="visuallyhidden">{{catalogItem.CustomerReview[0].Con[0].overallRating}} out of 5 stars</span>
+          </div>
+          <h4>{{catalogItem.CustomerReview[0].Con[0].title}}</h4>
+          <p>{{catalogItem.CustomerReview[0].Con[0].review}}</p>
+          <p><a href="#">{{catalogItem.CustomerReview[0].Con[0].screenName}}</a> {{catalogItem.CustomerReview[0].Con[0].datePosted | customerReviewDate}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
